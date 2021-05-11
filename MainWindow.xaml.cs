@@ -30,11 +30,7 @@ namespace AdamHoffman_S00197432
             var query = from c in db.Games
                         orderby c.Platform
                         select c;
-                        
 
-            
-
-            
             LBX_GameList.ItemsSource = query.ToList();
            
         }
@@ -44,7 +40,10 @@ namespace AdamHoffman_S00197432
             Game SelectedGame = LBX_GameList.SelectedItem as Game;
             if(SelectedGame != null)
             {
-                TXTBLK_GameDetails.Text = SelectedGame.MetaCriticScore;
+                
+               
+                TXTBLK_GameDetails.Text = SelectedGame.Price.ToString();
+
                 IMGBOX_Game.Source = new BitmapImage(new Uri(SelectedGame.Game_image, UriKind.Relative));
             }
         }
