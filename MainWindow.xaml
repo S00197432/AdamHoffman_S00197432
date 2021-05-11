@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdamHoffman_S00197432"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    
+    <Window.Resources>
+        <DataTemplate x:Key="listboxTemplate">
+            <StackPanel Orientation="Horizontal" Height="52" Width="94">
+            <Image Source ="{Binding Game_image}"/>
+                <TextBlock Margin="5" Text="{Binding Name}" VerticalAlignment="Center"/>
+        </StackPanel>           
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
-        
+        <ListBox ItemTemplate="{StaticResource ResourceKey= listboxTemplate}"  x:Name="LBX_GameList" HorizontalAlignment="Left" Height="367" Margin="25,29,0,0" VerticalAlignment="Top" Width="277" SelectionChanged="LBX_GameList_SelectionChanged"/>
+        <TextBlock x:Name="TXTBLK_GameDetails" HorizontalAlignment="Left" Margin="348,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="91" Width="388"/>
+        <Image x:Name="IMGBOX_Game" HorizontalAlignment="Left" Height="221" Margin="368,175,0,0" VerticalAlignment="Top" Width="368"/>
+
     </Grid>
 </Window>
